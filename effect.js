@@ -17,7 +17,6 @@ $('document').ready(function(){
 			$('#b77').animate({top:240, left: vw+250},500);
 		});
 
-	// Initialize balloon positions for mobile
 	function initializeBalloons() {
 		var windowWidth = $(window).width();
 		var isMobile = windowWidth < 768;
@@ -25,11 +24,9 @@ $('document').ready(function(){
 		for (var i = 1; i <= 9; i++) {
 			var $balloon = $('#b' + i);
 			if (isMobile) {
-				// Mobile: spread evenly across screen
-				var leftPos = (i * 10); // 10%, 20%, ..., 90%
+				var leftPos = (i * 10); 
 				$balloon.css('left', leftPos + '%');
 			} else {
-				// Desktop: original positions
 				$balloon.css('left', (i * 10) + '%');
 			}
 			$balloon.css('bottom', '-200px');
@@ -75,18 +72,15 @@ $('document').ready(function(){
 		});
 	});
 
-	// Improved balloon animation with mobile support
 	function getRandomPosition() {
 		var windowWidth = $(window).width();
 		var isMobile = windowWidth < 768;
 		
 		if (isMobile) {
-			// Mobile: use percentage positioning within safe area
-			var randleft = (70 * Math.random()) + 15; // 15% to 85%
-			var randtop = (50 * Math.random()) + 25;  // 25% to 75%
+			var randleft = (70 * Math.random()) + 15; 
+			var randtop = (50 * Math.random()) + 25;  
 			return { left: randleft + '%', bottom: randtop + '%' };
 		} else {
-			// Desktop: original pixel positioning
 			var randleft = 1000 * Math.random();
 			var randtop = 500 * Math.random();
 			return { left: randleft, bottom: randtop };
@@ -179,7 +173,6 @@ $('document').ready(function(){
 		});
 	});
 
-	// Improved final balloon arrangement for mobile
 	$('#wish_message').click(function(){
 		vw = $(window).width()/2;
 		var isMobile = $(window).width() < 768;
@@ -196,7 +189,6 @@ $('document').ready(function(){
 		$('#b9').attr('id','b99')
 		
 		if (isMobile) {
-			// Mobile arrangement - compact and properly spaced
 			var mobileTop = '25%';
 			$('#b11').animate({top: mobileTop, left: '5%'}, 500);
 			$('#b22').animate({top: mobileTop, left: '15%'}, 500);
@@ -239,7 +231,7 @@ $('document').ready(function(){
 			$("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
 			i=i+1;
 			$("p:nth-child("+i+")").fadeIn('slow').delay(1000);
-			if(i==50){
+			if(i==52){
 				$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
 					$('.cake').fadeIn('fast');
 				});
